@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+    int p = 0;
+    int used [39]={0};
+    int lotto[5]={0};
+
+    srand(time(NULL));
+
+    for(int i = 0; i < 5; i++){
+        //printf("%d ", i);
+
+        while(lotto[i] == 0){
+            p = 1 + rand() % 39;
+
+            if(used[p-1] == 0){ //0是false //數字沒被用過才進if迴圈
+                lotto[i] = p;
+                used[p-1] = 1; //數字被使用 記成1
+                printf("%d ", lotto[i]);
+            }
+        }
+    }
+    return 0;
+}
